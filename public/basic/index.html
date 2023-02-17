@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Socket Example</title>
+
+	<!-- Required Socket.io -->
+	<script src="socket.io.js"></script>
+
+	<!--  Edit this file  as per your needs -->
+	<script src="socket_browser.js"></script>
+	<style type="text/css">
+		.time_update{
+			background: #78ff7c;
+		}
+	</style>
+</head>
+<body>
+	<h2 id="status" style="color:blue;">...</h2>
+	<div style="text-align: center;">
+		<button onclick="socket_connection();start_conn();"><h4>Start Connection</h4></button>
+		<button onclick="disconnect()"><h4>Close Connection</h4></button>
+
+	<br><br>
+	<h3>Forex</h3>
+		<table width="90%" border="1" style="margin: auto">
+			<tr>
+				<th>Name</th>
+				<th>Current</th>
+				<th>Ask</th>
+				<th>Bid</th>
+				<th>Time</th>
+			</tr>
+			<tr>
+				<td>EUR-USD</td>
+				<td><span id="EUR-USD_PRICE">Press start</span></td>
+				<td><span id="EUR-USD_ASK">Press start</span></td>
+				<td><span id="EUR-USD_BID">Press start</span></td>
+				<td><span id="EUR-USD_TIME">Press start</span></td>
+			</tr>
+			<tr>
+				<td>XAU-USD</td>
+				<td><span id="XAU-USD_PRICE">Press start</span></td>
+				<td><span id="XAU-USD_ASK">Press start</span></td>
+				<td><span id="XAU-USD_BID">Press start</span></td>
+				<td><span id="XAU-USD_TIME">Press start</span></td>
+			</tr>
+		</table>
+
+		<h3>Crypto Currency <code><small>Exchange 1</small></code></h3>
+		<table width="90%" border="1" style="margin: auto">
+			<tr>
+				<th>Name</th>
+				<th>Current</th>
+				<th>Ask</th>
+				<th>Bid</th>
+				<th>Time</th>
+			</tr>
+			
+			<tr>
+				<td>LTC-USD</td>
+				<td><span id="LTC-USD_PRICE">Press start</span></td>
+				<td><span id="LTC-USD_ASK">Press start</span></td>
+				<td><span id="LTC-USD_BID">Press start</span></td>
+				<td><span id="LTC-USD_TIME">Press start</span></td>
+			</tr>
+			<tr>
+				<td>XRP-USD</td>
+				<td><span id="XRP-USD_PRICE">Press start</span></td>
+				<td><span id="XRP-USD_ASK">Press start</span></td>
+				<td><span id="XRP-USD_BID">Press start</span></td>
+				<td><span id="XRP-USD_TIME">Press start</span></td>
+			</tr>
+		</table>
+
+		<h3>Crypto  <code><small>Exchange 2</small></code></h3>
+		<table width="90%" border="1" style="margin: auto">
+			<tr>
+				<th>Name</th>
+				<th>Current</th>
+				<th>Ask</th>
+				<th>Bid</th>
+				<th>Time</th>
+			</tr>
+			<tr>
+				<td>LTC</td>
+				<td><span id="LTC_PRICE">Press start</span></td>
+				<td><span id="LTC_ASK">Press start</span></td>
+				<td><span id="LTC_BID">Press start</span></td>
+				<td><span id="LTC_TIME">Press start</span></td>
+			</tr>
+			<tr>
+				<td>XRP</td>
+				<td><span id="XRP_PRICE">Press start</span></td>
+				<td><span id="XRP_ASK">Press start</span></td>
+				<td><span id="XRP_BID">Press start</span></td>
+				<td><span id="XRP_TIME">Press start</span></td>
+			</tr>
+			
+		</table>
+		<strong style="color:Red">Difference between Crypto ex 1 and ex 2 :</strong>	 Both prices are from different exchanges, and some prices have an update frequency faster on Exchange 1 and some faster on Exchange 2.
+	</div>
+
+	<br>
+	<h2 style="color:Green"><u>Supported Currency List</u></h2>
+	Download supported list in excel file <a href="https://fcsapi.com/assets/socket/socket_support_list.xlsx"  download="socket_support_list" rel="nofollow" >Support List</a>
+	<br>We support ~400 FX, top 200 Crypto exchange 1 and top 60 Crypto prices from exchange 2.  
+
+	<br><br>
+
+
+
+	<h3>=> You are only allow to test EUR/USD, and XAU/USD(Gold), LTC,XRP for testing our socket. You have to buy it to get full access.</h3>
+	<br>
+
+	<ul>
+		<li>Press "Start Connection" button to establish connection with server.</li>
+		<li>You will receive new EURUSD,XAUUSD price when price change in FX market.</li>
+		<li>You will receive new LTCUSD,XRPUSD price when price change in Crypto market.</li>
+		<li>You can build your own business logic to use these prices. </li>
+	</ul>
+
+
+	<p><b>Note: FX Market are closed in Saturday and Sunday, You will not received any update in weekend. And some currencies does not have volume option.	</b></p>
+	<br><br>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+	function start_conn(){
+		$("table span").text("waiting...");
+	}
+</script>
+</body>
+</html>

@@ -5,10 +5,7 @@
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -23,21 +20,91 @@
       Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+      	<script src="socket.io.js"></script>
+
+	<!--  Edit this file  as per your needs -->
+    <script src="socket.io.js"></script>
+
+    <script src="socket_browser.js"></script>
+    <style type="text/css">
+      .time_update {
+        background: #78ff7c;
+      }
+    </style>
     <title>React App</title>
   </head>
-  <body>
+  <body style="margin:10px">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+   
+    <h4 id="status" style="color: rgb(48, 49, 47)">...</h4>
+    <div style="text-align: center">
+      <button onclick="socket_connection();start_conn();"><h4>Start Connection</h4></button>
+      <button onclick="disconnect()"><h4>Close Connection</h4></button>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      <br /><br />
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      <h3>
+        Crypto Currency <code><small>Exchange</small></code>
+      </h3>
+      <table width="90%" border="1" style="margin: auto">
+        <tr>
+          <th>Name</th>
+          <th>Last Close</th>
+          <th>Current</th>
+          <th>Ask</th>
+          <th>Bid</th>
+          <th>High</th>
+          <th>Low</th>
+          <th>Change</th>
+          <th>Change%</th>
+          <th>Spread</th>
+          <th>Volume</th>
+          <th>Time</th>
+        </tr>
+
+        <tr>
+          <td>LTC-USD</td>
+          <td><span id="LTC-USD_LASTC">Press start</span></td>
+          <td><span id="LTC-USD_PRICE">Press start</span></td>
+          <td><span id="LTC-USD_ASK">Press start</span></td>
+          <td><span id="LTC-USD_BID">Press start</span></td>
+          <td><span id="LTC-USD_HIGH">Press start</span></td>
+          <td><span id="LTC-USD_LOW">Press start</span></td>
+          <td><span id="LTC-USD_CHANGE">Press start</span></td>
+          <td><span id="LTC-USD_CHANGEP">Press start</span></td>
+          <td><span id="LTC-USD_SPREAD">Press start</span></td>
+          <td><span id="LTC-USD_VOL">Press start</span></td>
+          <td><span id="LTC-USD_TIME">Press start</span></td>
+        </tr>
+        <tr>
+          <td>XRP-USD</td>
+          <td><span id="XRP-USD_LASTC">Press start</span></td>
+          <td><span id="XRP-USD_PRICE">Press start</span></td>
+          <td><span id="XRP-USD_ASK">Press start</span></td>
+          <td><span id="XRP-USD_BID">Press start</span></td>
+          <td><span id="XRP-USD_HIGH">Press start</span></td>
+          <td><span id="XRP-USD_LOW">Press start</span></td>
+          <td><span id="XRP-USD_CHANGE">Press start</span></td>
+          <td><span id="XRP-USD_CHANGEP">Press start</span></td>
+          <td><span id="XRP-USD_SPREAD">Press start</span></td>
+          <td><span id="XRP-USD_VOL">Press start</span></td>
+          <td><span id="XRP-USD_TIME">Press start</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <br />
+    
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      function start_conn() {
+        $("table span").text("waiting...");
+      }
+    </script>
   </body>
 </html>
